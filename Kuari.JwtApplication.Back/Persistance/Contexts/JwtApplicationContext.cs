@@ -1,6 +1,7 @@
 ﻿using Kuari.JwtApplication.Back.Core.Domain;
 using Kuari.JwtApplication.Back.Persistance.Configurations;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Kuari.JwtApplication.Back.Persistance.Contexts
 {
@@ -20,7 +21,7 @@ namespace Kuari.JwtApplication.Back.Persistance.Contexts
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
-
+           
             base.OnModelCreating(modelBuilder);
         }
     }

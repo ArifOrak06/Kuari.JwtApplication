@@ -1,5 +1,11 @@
+using AutoMapper;
+using Kuari.JwtApplication.Back.Core.Application.Ýnterfaces;
+using Kuari.JwtApplication.Back.Core.Application.Mappings;
 using Kuari.JwtApplication.Back.Persistance.Contexts;
+using Kuari.JwtApplication.Back.Persistance.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +18,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<JwtApplicationContext>(x =>
 {
     x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
+});
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
+builder.Services.AddAutoMapper(opt =>
+{
+    opt.AddProfiles(new List<Profile>
+    {
+        new ProductProfile()
+    });
 });
 var app = builder.Build();
 
