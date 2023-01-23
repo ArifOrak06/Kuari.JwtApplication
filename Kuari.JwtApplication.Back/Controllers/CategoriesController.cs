@@ -40,6 +40,12 @@ namespace Kuari.JwtApplication.Back.Controllers
             var result = await _mediator.Send(request);
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _mediator.Send(new DeleteCategoryCommandRequest(id));
+            return  NoContent();
+        }
     
     
     }
