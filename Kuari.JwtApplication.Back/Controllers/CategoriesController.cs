@@ -1,11 +1,13 @@
 ﻿using Kuari.JwtApplication.Back.Core.Application.Features.CQRS.Commands;
 using Kuari.JwtApplication.Back.Core.Application.Features.CQRS.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kuari.JwtApplication.Back.Controllers
 {
+    [Authorize(Roles ="Admin,Member")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase

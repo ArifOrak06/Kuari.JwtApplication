@@ -36,7 +36,7 @@ namespace Kuari.JwtApplication.Back.Core.Application.Features.CQRS.Handlers
                 dto.Id = user.Id;
                 var role = await _roleRepository.GetByFilterAsync(x => x.Id == user.AppRoleId);
                 dto.Role = role?.Definition;
-
+                dto.IsExist = true;
             }
             return dto;
         }
