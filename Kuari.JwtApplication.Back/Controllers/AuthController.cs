@@ -25,7 +25,7 @@ namespace Kuari.JwtApplication.Back.Controllers
             return Created("",request);
         }
         [HttpPost]
-        public async Task<IActionResult> Check(CheckUserQueryRequest request)
+        public async Task<IActionResult> Login(CheckUserQueryRequest request)
         {
             var dto = await  _mediator.Send(request); // handle classında kullanıcı dbde varsa IsExist true olarak setlenecektir, burada durum kontrolü yapılması gerekiyor.
             if (dto.IsExist)

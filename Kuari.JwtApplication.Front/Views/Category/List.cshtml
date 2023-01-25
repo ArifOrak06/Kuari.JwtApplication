@@ -1,0 +1,40 @@
+﻿@model List<CategoryListModel>
+@{
+    Layout = "_Layout";
+}
+
+@{
+    if(@Model?.Count > 0)
+    {
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var category in Model)
+                    {
+                        <tr>
+                            <td>@category.Id</td>
+                            <td>@category.Definition</td>
+                        
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+       <div class="text-center">
+            <code>Herhangi bir kayıt bulunamamıştır.</code>
+
+       </div>
+    }
+
+
+
+}

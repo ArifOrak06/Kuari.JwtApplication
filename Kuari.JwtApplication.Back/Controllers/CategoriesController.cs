@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Kuari.JwtApplication.Back.Controllers
 {
-    [Authorize(Roles ="Admin,Member")]
+    //[Authorize(Roles ="Admin,Member")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
